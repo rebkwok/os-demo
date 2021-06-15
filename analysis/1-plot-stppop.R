@@ -1,16 +1,17 @@
 ## import libraries
+
 library('tidyverse')
 
 ## import data
 df_input <- read_csv(
-  here::here("output", "cohorts", "input_1_stppop.csv"), 
+  here::here("output", "cohorts", "input_1_stppop.csv"),
   col_types = cols(
     patient_id = col_integer(),
     stp = col_character()
   )
 )
 
-# count STP for each registered patient
+
 df_stppop = df_input %>% count(stp, name='registered')
 
 plot_stppop_bar <- df_stppop %>%
@@ -33,8 +34,7 @@ plot_stppop_bar <- df_stppop %>%
     plot.title.position = "plot",
     plot.caption.position =  "plot"
   )
-  
-plot_stppop_bar
+
 
 ggsave(
   plot= plot_stppop_bar,
@@ -43,3 +43,7 @@ ggsave(
   height = 15,
   width = 15
 )
+
+
+plot_stppop_bar
+
