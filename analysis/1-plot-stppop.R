@@ -35,6 +35,8 @@ plot_stppop_bar <- df_stppop %>%
     plot.caption.position =  "plot"
   )
 
+# create directory where output will be saved
+dir.create(here::here("output", "plots"))
 
 ggsave(
   plot= plot_stppop_bar,
